@@ -1,11 +1,16 @@
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.5.3
+
 jobs:
   test:
     docker:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
+      
+      - browser-tools/install-chrome
       
       - run:
           name: Run Tests
